@@ -16,6 +16,8 @@
     ./modules/foot.nix
     ./modules/nvf.nix
     ./modules/direnv.nix
+    ./modules/yazi.nix
+    ./modules/lazygit.nix
   ];
 
   home.username = "reymono";

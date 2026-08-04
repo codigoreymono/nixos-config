@@ -18,6 +18,8 @@
     ./modules/direnv.nix
     ./modules/yazi.nix
     ./modules/lazygit.nix
+    ./modules/aliases.nix
+    ./modules/starship.nix
   ];
 
   home.username = "reymono";

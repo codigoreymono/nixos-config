@@ -12,10 +12,40 @@
     settings.vim = {
       viAlias = true;
       vimAlias = true;
-  
+      dashboard.dashboard-nvim = {
+              enable = true;
+              setupOpts = {
+                theme = "hyper";
+                config = {
+                  header = [
+                    "                                        "
+                    " ███╗   ██╗██╗   ██╗███████╗            "
+                    " ████╗  ██║██║   ██║██╔════╝            "
+                    " ██╔██╗ ██║██║   ██║█████╗              "
+                    " ██║╚██╗██║╚██╗ ██╔╝██╔══╝              "
+                    " ██║ ╚████║ ╚████╔╝ ██║                 "
+                    " ╚═╝  ╚═══╝  ╚═══╝  ╚═╝                 "
+                    "                                        "
+                  ];
+                  project.enable = false;
+                };
+              };
+            };
+     utility.surround.enable = true;
+     ui.illuminate.enable = true;
+     notes.todo-comments.enable = true; 
      autopairs.nvim-autopairs.enable = true;
      binds.whichKey.enable = true;
-
+     luaConfigRC.surroundSetup = ''
+             require('nvim-surround').setup({})
+           '';
+     utility.motion.flash-nvim = {
+             enable = true;
+             mappings = {
+               jump = "<leader><leader>";
+             };
+           };
+     
       visuals = {
         indent-blankline.enable = true;
       };
@@ -67,7 +97,10 @@
 
         html.enable = true;
         css.enable = true;
-        markdown.enable = true;
+        markdown = {
+           enable = true;
+           extensions.render-markdown-nvim.enable = true;
+        };
       };
 
       git = {

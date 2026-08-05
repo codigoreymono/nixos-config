@@ -83,7 +83,7 @@
   users.users."reymono" = {
     isNormalUser = true;
     description = "AndresC";
-    extraGroups = [ "networkmanager" "wheel" "video" "audio" ];
+    extraGroups = [ "networkmanager" "wheel" "video" "audio" "libvirtd" ];
     packages = with pkgs; [];
   };
 
@@ -110,5 +110,15 @@
     ELECTRON_OZONE_PLATFORM_HINT = "wayland";
   };
 
+   programs.virt-manager.enable = true;
+  virtualisation.libvirtd = {
+      enable = true;
+      qemu = {
+        package = pkgs.qemu_kvm;
+        runAsRoot = true;
+        swtpm.enable = true;  # soporte TPM virtual, útil para VMs con Windows 11 por ejemplo
+      };
+    };
+  
   system.stateVersion = "26.05";
 }

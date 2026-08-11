@@ -10,9 +10,9 @@
     imv
     vscodium
     harlequin
-    dbeaver-bin
     obsidian
-    
+    dbeaver-bin
+      
   ];
 
 }

@@ -9,6 +9,9 @@
     vlc
     imv
     vscodium
+    harlequin
+    dbeaver-bin
+    obsidian
     
   ];
 

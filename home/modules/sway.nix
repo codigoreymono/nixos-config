@@ -106,7 +106,8 @@ output = {
                   #Thunar
                   bindsym Mod4+Shift+f exec thunar 
 
-                  
+                  #vscodium
+                  for_window [app_id="codium"] opacity 0.92
             
     '';
   };

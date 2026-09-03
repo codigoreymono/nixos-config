@@ -39,7 +39,7 @@
     emoji = [ "Noto Color Emoji" ];
   };
 
-  # Servicios Laptop 
+  # Servicios Laptop
   services.tlp = {
       enable = true;
       settings = {
@@ -49,11 +49,11 @@
         STOP_CHARGE_THRESH_BAT0 = 80;
       };
     };
-  
+
     services.thermald.enable = true;
     services.fstrim.enable = true;
     services.fwupd.enable = true;
-  
+
     services.logind.settings.Login = {
       HandleLidSwitch = "suspend";
       HandleLidSwitchExternalPower = "suspend";
@@ -119,6 +119,6 @@
         swtpm.enable = true;  # soporte TPM virtual, útil para VMs con Windows 11 por ejemplo
       };
     };
-  
+
   system.stateVersion = "26.05";
 }

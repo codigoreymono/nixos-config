@@ -19,7 +19,7 @@ home.packages = with pkgs; [
         { command = "swaybg -i /home/reymono/Pictures/wallpapers/jellyfish.jpg -m fill"; }
       ];
 
-      
+
 
 # config del touchpad
 
@@ -70,22 +70,22 @@ output = {
 
 
 
-      
+
     };
     extraConfig = ''
-    
+
       exec waybar
-      
+
       # --- Volumen ---
             bindsym XF86AudioRaiseVolume exec wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+
             bindsym XF86AudioLowerVolume exec wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-
             bindsym XF86AudioMute exec wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle
             bindsym XF86AudioMicMute exec wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle
-      
+
             # --- Brillo ---
             bindsym XF86MonBrightnessUp exec brightnessctl set 5%+
             bindsym XF86MonBrightnessDown exec brightnessctl set 5%-
-      
+
             # --- WiFi / modo avión ---
             bindsym XF86RFKill exec nmcli radio wifi toggle
 
@@ -96,19 +96,18 @@ output = {
             # ── NUEVO: Capturas de pantalla ──
                   # Pantalla completa → guarda en ~/Pictures/
                   bindsym Print exec grim ~/Pictures/screenshot-$(date +%Y%m%d-%H%M%S).png
-            
+
                   # Seleccionar área → guarda en ~/Pictures/
                   bindsym Shift+Print exec grim -g "$(slurp)" ~/Pictures/screenshot-$(date +%Y%m%d-%H%M%S).png
-            
+
                   # Seleccionar área → copia al portapapeles (para pegar directo)
                   bindsym Ctrl+Shift+Print exec grim -g "$(slurp)" - | wl-copy
 
                   #Thunar
-                  bindsym Mod4+Shift+f exec thunar 
+                  bindsym Mod4+Shift+f exec thunar
 
-                  #vscodium
-                  for_window [app_id="codium"] opacity 0.92
-            
+
+
     '';
   };
 }

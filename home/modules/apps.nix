@@ -1,6 +1,6 @@
 { pkgs, ... }: {
   #APPS
-  
+
   home.packages = with pkgs; [
     htop
     btop
@@ -8,11 +8,12 @@
     brave
     vlc
     imv
-    vscodium
+    vscode
     harlequin
     obsidian
     dbeaver-bin
-      
+    ripgrep
+
   ];
 
 }

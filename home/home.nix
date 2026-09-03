@@ -14,12 +14,13 @@
     ./modules/gtk.nix
     ./modules/thunar.nix
     ./modules/foot.nix
-    ./modules/nvf.nix
     ./modules/direnv.nix
     ./modules/yazi.nix
     ./modules/lazygit.nix
     ./modules/aliases.nix
     ./modules/starship.nix
+    ./modules/micro.nix
+
   ];
 
   home.username = "reymono";

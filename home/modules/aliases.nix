@@ -1,7 +1,7 @@
 { config, pkgs, ... }:
 {
   programs.bash.shellAliases = {
-    # Navegación
+
     ll = "ls -la";
     la = "ls -A";
 
@@ -13,10 +13,5 @@
     lg = "lazygit";
     gs = "git status";
 
-    # Yazi
-  #  y = "y"; # ya viene del propio módulo de yazi (shellWrapperName), esto es solo referencia
-
-    # Python / proyectos
-    proyectos = "cd ~/proyectos";
   };
 }

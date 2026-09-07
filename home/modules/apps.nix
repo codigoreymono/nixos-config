@@ -13,7 +13,9 @@
     obsidian
     dbeaver-bin
     ripgrep
-
+    discord
+    ffmpegthumbnailer
+    xarchiver
   ];
 
 }

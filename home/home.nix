@@ -1,18 +1,17 @@
-{ config, pkgs, ... }:
+{ inputs, config, pkgs, ... }:
 {
   imports = [
+
+     inputs.nvf.homeManagerModules.default
+
     ./modules/git.nix
-    ./modules/sway.nix
-    ./modules/waybar.nix
     ./modules/bash.nix
-    ./modules/swayidle.nix
+    ./modules/hypridle.nix
     ./modules/apps.nix
     ./modules/fuzzel.nix
     ./modules/clipboard.nix
-    ./modules/mako.nix
-    ./modules/swaylock.nix
+    ./modules/hyprlock.nix
     ./modules/gtk.nix
-    ./modules/thunar.nix
     ./modules/foot.nix
     ./modules/direnv.nix
     ./modules/yazi.nix
@@ -20,7 +19,13 @@
     ./modules/aliases.nix
     ./modules/starship.nix
     ./modules/micro.nix
-
+    ./modules/hyprland
+    ./modules/quickshell
+    ./modules/screenshots.nix
+    ./modules/hyprpaper.nix
+    ./modules/opencode.nix
+    ./modules/herdr.nix
+    ./modules/nvf
   ];
 
   home.username = "reymono";
@@ -30,6 +35,7 @@
   programs.home-manager.enable = true;
 
   home.pointerCursor = {
+    enable = true;
     name = "phinger-cursors-dark";
     package = pkgs.phinger-cursors;
     size = 24;

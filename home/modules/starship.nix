@@ -1,5 +1,8 @@
-{ config, pkgs, ... }:
+{ ... }:
+
 {
+  stylix.targets.starship.enable = true;
+
   programs.starship = {
     enable = true;
     enableBashIntegration = true;
@@ -7,56 +10,118 @@
     settings = {
       add_newline = true;
 
-      format = ''
-        $os$username$directory$git_branch$git_status$python$nix_shell$character
-      '';
+      # Top line: secondary information aligned to the right
+      # Bottom line: main prompt aligned to the left
+      format = "$fill\${custom.date}$cmd_duration\n$os$username$directory$git_branch$git_status$python$nix_shell$character";
+
+      # ----------------------------------------------------------------
+      # FILL
+      # ----------------------------------------------------------------
+
+      fill = {
+        symbol = " ";
+      };
+
+      # ----------------------------------------------------------------
+      # DATE
+      # ----------------------------------------------------------------
+
+      custom.date = {
+        command = "date +%d/%m/%y";
+        when = true;
+
+        style = "base04";
+        format = "[$output]($style)";
+      };
+
+      # ----------------------------------------------------------------
+      # COMMAND DURATION
+      # ----------------------------------------------------------------
+
+      cmd_duration = {
+        min_time = 2000;
+        style = "bold base0A";
+
+        format = "[ | ](base04)[$duration]($style)";
+      };
+
+      # ----------------------------------------------------------------
+      # OS
+      # ----------------------------------------------------------------
 
       os = {
         disabled = false;
-        style = "bold #89b4fa";
+        style = "bold base0A";
+
         symbols = {
           NixOS = " ";
         };
       };
 
+      # ----------------------------------------------------------------
+      # USER
+      # ----------------------------------------------------------------
+
       username = {
-        style_user = "bold #cba6f7";
+        style_user = "bold base05";
         format = "[$user]($style) ";
         show_always = true;
       };
 
-      character = {
-        success_symbol = "[❯](bold #a6e3a1)";
-        error_symbol = "[❯](bold #f38ba8)";
-      };
+      # ----------------------------------------------------------------
+      # DIRECTORY
+      # ----------------------------------------------------------------
 
       directory = {
-        style = "bold #89b4fa";
-        truncation_length = 3;
-        truncate_to_repo = true;
+        style = "bold base0D";
+
+        truncation_length = 2;
+        truncate_to_repo = false;
+        truncation_symbol = "…/";
       };
 
+      # ----------------------------------------------------------------
+      # GIT
+      # ----------------------------------------------------------------
+
       git_branch = {
-        style = "bold #cba6f7";
+        style = "bold base0A";
         format = " [$symbol$branch]($style)";
         symbol = " ";
       };
 
       git_status = {
-        style = "bold #f9e2af";
+        style = "bold base09";
         format = "[$all_status$ahead_behind]($style)";
       };
 
+      # ----------------------------------------------------------------
+      # PYTHON
+      # ----------------------------------------------------------------
+
       python = {
-        style = "bold #a6e3a1";
+        style = "bold base0B";
         format = " [$symbol$virtualenv]($style)";
         symbol = " ";
       };
 
+      # ----------------------------------------------------------------
+      # NIX SHELL
+      # ----------------------------------------------------------------
+
       nix_shell = {
-        style = "bold #94e2d5";
+        style = "bold base0C";
         format = " [$symbol$state]($style)";
         symbol = " ";
+      };
+
+      # ----------------------------------------------------------------
+      # PROMPT CHARACTER
+      # ----------------------------------------------------------------
+
+      character = {
+        success_symbol = "[❯](bold base0A)";
+        error_symbol = "[❯](bold base08)";
       };
     };
   };

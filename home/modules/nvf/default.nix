@@ -9,6 +9,8 @@
     ./autopairs.nix
     ./languages
     ./ui
+    ./plugins
+
 
 
   ];

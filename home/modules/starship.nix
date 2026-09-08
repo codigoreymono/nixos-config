@@ -12,7 +12,7 @@
 
       # Top line: secondary information aligned to the right
       # Bottom line: main prompt aligned to the left
-      format = "$fill\${custom.date}$cmd_duration\n$os$username$directory$git_branch$git_status$python$nix_shell$character";
+      format = "$fill\${custom.date}$cmd_duration\n$os$username$directory$git_branch$git_status$nix_shell$character";
 
       # ----------------------------------------------------------------
       # FILL
@@ -78,6 +78,8 @@
         truncation_length = 2;
         truncate_to_repo = false;
         truncation_symbol = "…/";
+
+        read_only = "";
       };
 
       # ----------------------------------------------------------------
@@ -93,16 +95,6 @@
       git_status = {
         style = "bold base09";
         format = "[$all_status$ahead_behind]($style)";
-      };
-
-      # ----------------------------------------------------------------
-      # PYTHON
-      # ----------------------------------------------------------------
-
-      python = {
-        style = "bold base0B";
-        format = " [$symbol$virtualenv]($style)";
-        symbol = " ";
       };
 
       # ----------------------------------------------------------------

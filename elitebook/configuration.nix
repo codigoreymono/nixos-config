@@ -36,16 +36,6 @@
   # DESKTOP / WAYLAND
   # -----------------------------------------------------------------
 
-  # --- SWAY ---------------------------------------------------------
-
-  programs.sway = {
-    enable = true;
-    wrapperFeatures.gtk = true;
-  };
-
-  security.pam.services.swaylock = {};
-
-
   # --- HYPRLAND -----------------------------------------------------
 
   programs.hyprland = {
@@ -212,8 +202,6 @@
     brightnessctl
     wev
     networkmanagerapplet
-    pavucontrol
-    networkmanager_dmenu
     grim
     slurp
   ];

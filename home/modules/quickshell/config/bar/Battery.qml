@@ -28,12 +28,6 @@ Item {
     implicitWidth: content.implicitWidth + 12
     implicitHeight: 28
 
-    BatteryPanel {
-        id: batteryPanel
-
-        anchorItem: root
-    }
-
     Rectangle {
         anchors.fill: parent
 
@@ -41,7 +35,6 @@ Item {
 
         color:
             mouseArea.containsMouse
-            || batteryPanel.visible
                 ? Theme.surfaceActive
                 : "transparent"
 
@@ -98,6 +91,11 @@ Item {
         cursorShape: Qt.PointingHandCursor
 
         onClicked:
-            batteryPanel.toggle()
+            Quickshell.execDetached([
+                "foot",
+                "--app-id=jolt",
+                "-e",
+                "jolt"
+            ])
     }
 }

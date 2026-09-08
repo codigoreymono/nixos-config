@@ -34,13 +34,6 @@ Item {
     implicitWidth: content.implicitWidth + 12
     implicitHeight: 28
 
-    AudioPanel {
-        id: audioPanel
-
-        anchorItem: root
-        sink: root.sink
-    }
-
     Rectangle {
         anchors.fill: parent
 
@@ -48,7 +41,6 @@ Item {
 
         color:
             mouseArea.containsMouse
-            || audioPanel.visible
                 ? Theme.surfaceActive
                 : "transparent"
 
@@ -122,6 +114,11 @@ Item {
         cursorShape: Qt.PointingHandCursor
 
         onClicked:
-            audioPanel.toggle()
+            Quickshell.execDetached([
+                "foot",
+                "--app-id=wiremix",
+                "-e",
+                "wiremix"
+            ])
     }
 }

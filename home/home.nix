@@ -22,9 +22,11 @@
     ./modules/hyprland
     ./modules/quickshell
     ./modules/screenshots.nix
+    ./modules/mako.nix
     ./modules/hyprpaper.nix
     ./modules/opencode.nix
     ./modules/herdr.nix
+    ./modules/tray.nix
     ./modules/nvf
   ];
 

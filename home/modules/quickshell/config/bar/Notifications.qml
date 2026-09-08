@@ -1,12 +1,10 @@
 import QtQuick
+import Quickshell
 
 import qs.theme
-import "../notifications"
 
 Item {
     id: root
-
-    required property var notificationManager
 
     implicitWidth: 28
     implicitHeight: 28
@@ -26,24 +24,6 @@ Item {
             Theme.fontDesktopSize + 1
     }
 
-    Rectangle {
-        visible:
-            root.notificationManager.historyCount > 0
-
-        anchors.top: parent.top
-        anchors.right: parent.right
-
-        anchors.topMargin: 2
-        anchors.rightMargin: 1
-
-        width: 7
-        height: 7
-
-        radius: 4
-
-        color: Theme.foreground
-    }
-
     MouseArea {
         id: mouseArea
 
@@ -53,17 +33,12 @@ Item {
         cursorShape:
             Qt.PointingHandCursor
 
-        onClicked: {
-            center.open = !center.open
-        }
-    }
-
-    NotificationCenter {
-        id: center
-
-        anchorItem: root
-
-        notificationManager:
-            root.notificationManager
+        onClicked:
+            Quickshell.execDetached([
+                "foot",
+                "--app-id=mako-history",
+                "-e",
+                "mako-history"
+            ])
     }
 }

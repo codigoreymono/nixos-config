@@ -9,12 +9,6 @@ Item {
     width: 34
     height: 34
 
-    LauncherPanel {
-        id: launcherPanel
-
-        anchorItem: root
-    }
-
     Image {
         id: nixIcon
 
@@ -22,7 +16,6 @@ Item {
 
         width:
             mouseArea.containsMouse
-            || launcherPanel.visible
                 ? 25
                 : 23
 
@@ -51,10 +44,7 @@ Item {
 
         text: ""
 
-        color:
-            launcherPanel.visible
-                ? Theme.foreground
-                : Theme.text
+        color: Theme.text
 
         font.family: Theme.fontMono
         font.pointSize: Theme.fontDesktopSize + 4
@@ -69,6 +59,8 @@ Item {
         cursorShape: Qt.PointingHandCursor
 
         onClicked:
-            launcherPanel.toggle()
+            Quickshell.execDetached([
+                "fuzzel"
+            ])
     }
 }

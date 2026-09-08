@@ -71,13 +71,6 @@ Item {
     implicitWidth: content.implicitWidth + 12
     implicitHeight: 28
 
-    NetworkPanel {
-        id: networkPanel
-
-        anchorItem: root
-        wifiDevice: root.wifiDevice
-    }
-
     Rectangle {
         anchors.fill: parent
 
@@ -85,7 +78,6 @@ Item {
 
         color:
             mouseArea.containsMouse
-            || networkPanel.visible
                 ? Theme.surfaceActive
                 : "transparent"
 
@@ -160,6 +152,11 @@ Item {
         cursorShape: Qt.PointingHandCursor
 
         onClicked:
-            networkPanel.toggle()
+            Quickshell.execDetached([
+                "foot",
+                "--app-id=wifitui",
+                "-e",
+                "wifitui"
+            ])
     }
 }

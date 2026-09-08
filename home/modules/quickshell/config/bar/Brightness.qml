@@ -61,88 +61,41 @@ Item {
             root.brightness * 100
         )
 
-    // ---------------------------------------------------------------
-    // ICON
-    // ---------------------------------------------------------------
-
-    readonly property string iconName:
-        root.percentage < 50
-            ? "display-brightness-low-symbolic"
-            : "display-brightness-high-symbolic"
-
     implicitWidth:
         content.implicitWidth + 12
 
     implicitHeight: 28
 
-    BrightnessPanel {
-        id: brightnessPanel
+    Row {
+        id: content
 
-        anchorItem: root
-        brightness: root.brightness
-    }
+        anchors.centerIn: parent
+        spacing: 5
 
-    Rectangle {
-        anchors.fill: parent
+        Text {
+            anchors.verticalCenter: parent.verticalCenter
 
-        radius: 5
+            text:
+                root.percentage < 50
+                    ? "󰃞"
+                    : "󰃠"
 
-        color:
-            mouseArea.containsMouse
-            || brightnessPanel.visible
-                ? Theme.surfaceActive
-                : "transparent"
+            color: Theme.text
 
-        Row {
-            id: content
-
-            anchors.centerIn: parent
-            spacing: 5
-
-            Text {
-                anchors.verticalCenter: parent.verticalCenter
-
-                text:
-                    root.percentage < 50
-                        ? "󰃞"
-                        : "󰃠"
-
-                color: Theme.text
-
-                font.family: Theme.fontMono
-                font.pointSize: Theme.fontDesktopSize + 2
-            }
-
-            Text {
-                anchors.verticalCenter: parent.verticalCenter
-
-                text: root.percentage + "%"
-
-                color: Theme.text
-
-                font.family: Theme.fontMono
-                font.pointSize: Theme.fontDesktopSize
-                font.weight: Font.Medium
-            }
+            font.family: Theme.fontMono
+            font.pointSize: Theme.fontDesktopSize + 2
         }
 
-        Behavior on color {
-            ColorAnimation {
-                duration: 100
-            }
+        Text {
+            anchors.verticalCenter: parent.verticalCenter
+
+            text: root.percentage + "%"
+
+            color: Theme.text
+
+            font.family: Theme.fontMono
+            font.pointSize: Theme.fontDesktopSize
+            font.weight: Font.Medium
         }
-    }
-
-    MouseArea {
-        id: mouseArea
-
-        anchors.fill: parent
-
-        hoverEnabled: true
-        cursorShape:
-            Qt.PointingHandCursor
-
-        onClicked:
-            brightnessPanel.toggle()
     }
 }

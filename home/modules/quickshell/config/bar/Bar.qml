@@ -6,8 +6,6 @@ import qs.theme
 PanelWindow {
     id: root
 
-    required property var notificationManager
-
     anchors {
         top: true
         left: true
@@ -60,7 +58,7 @@ PanelWindow {
         // -----------------------------------------------------------
         // RIGHT
         // Clock -> Caffeine -> Network -> Audio -> Brightness
-        // -> Battery -> Tray -> Clipboard -> Notifications
+        // -> Battery -> Tray -> Notifications
         // -----------------------------------------------------------
 
         Clock {
@@ -116,14 +114,6 @@ PanelWindow {
         Tray {
             id: tray
 
-            anchors.right: clipboard.left
-            anchors.rightMargin: 4
-            anchors.verticalCenter: parent.verticalCenter
-        }
-
-        Clipboard {
-            id: clipboard
-
             anchors.right: notifications.left
             anchors.rightMargin: 4
             anchors.verticalCenter: parent.verticalCenter
@@ -131,9 +121,6 @@ PanelWindow {
 
         Notifications {
             id: notifications
-
-            notificationManager:
-                root.notificationManager
 
             anchors.right: power.left
             anchors.rightMargin: 4

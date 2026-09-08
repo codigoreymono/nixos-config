@@ -15,12 +15,6 @@ Item {
         precision: SystemClock.Minutes
     }
 
-    ClockPanel {
-        id: clockPanel
-
-        anchorItem: root
-    }
-
     Rectangle {
         anchors.fill: parent
 
@@ -28,7 +22,6 @@ Item {
 
         color:
             mouseArea.containsMouse
-            || clockPanel.visible
                 ? Theme.surfaceActive
                 : "transparent"
 
@@ -39,13 +32,10 @@ Item {
 
             text: Qt.formatDateTime(
                 clock.date,
-                "HH:mm"
+                "HH:mm · d/M/yy"
             )
 
-            color:
-                clockPanel.visible
-                    ? Theme.foreground
-                    : Theme.text
+            color: Theme.text
 
             font.family: Theme.fontMono
             font.pointSize: Theme.fontDesktopSize
@@ -67,6 +57,12 @@ Item {
         hoverEnabled: true
         cursorShape: Qt.PointingHandCursor
 
-        onClicked: clockPanel.toggle()
+        onClicked:
+            Quickshell.execDetached([
+                "foot",
+                "--app-id=calcurse",
+                "-e",
+                "calcurse"
+            ])
     }
 }

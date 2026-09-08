@@ -1,5 +1,4 @@
 import QtQuick
-
 import Quickshell
 import Quickshell.Services.SystemTray
 
@@ -8,116 +7,49 @@ import qs.theme
 Item {
     id: root
 
-    implicitWidth: trayRow.implicitWidth
+    // Keep a persistent StatusNotifierHost alive.
+    // tray-tui handles the actual tray UI.
+    readonly property var trayItems: SystemTray.items
+
+    implicitWidth: 28
     implicitHeight: 28
 
-    Row {
-        id: trayRow
+    Rectangle {
+        anchors.fill: parent
 
-        anchors.verticalCenter: parent.verticalCenter
+        radius: 5
 
-        spacing: 2
+        color:
+            mouseArea.containsMouse
+                ? Theme.surfaceActive
+                : "transparent"
 
-        Repeater {
-            model: SystemTray.items
+        Text {
+            anchors.centerIn: parent
 
-            delegate: Item {
-                id: trayItem
+            text: "󰆍"
 
-                required property var modelData
+            color: Theme.text
 
-                width: 28
-                height: 28
-
-                Rectangle {
-                    anchors.fill: parent
-
-                    radius: 5
-
-                    color:
-                        mouseArea.containsMouse
-                            ? Theme.surfaceActive
-                            : "transparent"
-                }
-
-                Image {
-                    anchors.centerIn: parent
-
-                    width: 18
-                    height: 18
-
-                    source: trayItem.modelData.icon
-
-                    fillMode: Image.PreserveAspectFit
-                    mipmap: true
-                }
-
-                QsMenuAnchor {
-                    id: menuAnchor
-
-                    menu: trayItem.modelData.menu
-
-                    anchor.item: trayItem
-                    anchor.edges:
-                        Edges.Bottom
-                        | Edges.Right
-
-                    anchor.gravity:
-                        Edges.Bottom
-                        | Edges.Left
-                }
-
-                MouseArea {
-                    id: mouseArea
-
-                    anchors.fill: parent
-
-                    hoverEnabled: true
-
-                    acceptedButtons:
-                        Qt.LeftButton
-                        | Qt.MiddleButton
-                        | Qt.RightButton
-
-                    cursorShape:
-                        Qt.PointingHandCursor
-
-                    function openMenu() {
-                        if (!trayItem.modelData.hasMenu)
-                            return
-
-                        menuAnchor.open()
-                    }
-
-                    onClicked: mouse => {
-                        if (mouse.button === Qt.LeftButton) {
-                            if (trayItem.modelData.onlyMenu) {
-                                openMenu()
-                            } else {
-                                trayItem.modelData.activate()
-                            }
-
-                            return
-                        }
-
-                        if (mouse.button === Qt.MiddleButton) {
-                            trayItem.modelData.secondaryActivate()
-                            return
-                        }
-
-                        if (mouse.button === Qt.RightButton) {
-                            openMenu()
-                        }
-                    }
-
-                    onWheel: wheel => {
-                        trayItem.modelData.scroll(
-                            wheel.angleDelta.y,
-                            false
-                        )
-                    }
-                }
-            }
+            font.family: Theme.fontMono
+            font.pointSize: Theme.fontDesktopSize + 2
         }
+    }
+
+    MouseArea {
+        id: mouseArea
+
+        anchors.fill: parent
+
+        hoverEnabled: true
+        cursorShape: Qt.PointingHandCursor
+
+        onClicked:
+            Quickshell.execDetached([
+                "foot",
+                "--app-id=tray-tui",
+                "-e",
+                "tray-tui"
+            ])
     }
 }

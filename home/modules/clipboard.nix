@@ -22,7 +22,7 @@ let
       set -euo pipefail
 
       ${pkgs.wl-clipboard}/bin/wl-copy --clear
-      ${pkgs.wl-clipboard}/bin/wl-copy --clear-primary
+      ${pkgs.wl-clipboard}/bin/wl-copy --primary --clear
     '';
 
   clipboard-history-wipe =
@@ -45,6 +45,8 @@ let
             --dmenu \
             --with-nth=2 \
             --only-match \
+            --counter \
+            --no-sort \
             --prompt "Clipboard > "
     )
 

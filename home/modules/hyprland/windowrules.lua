@@ -82,3 +82,77 @@ hl.window_rule({
         "monitor_h * 0.70",
     },
 })
+
+-- -------------------------------------------------------------------
+-- TUI POPUPS
+-- -------------------------------------------------------------------
+
+-- Wi-Fi manager
+hl.window_rule({
+    name = "wifitui",
+
+    match = {
+        initial_class = "^wifitui$",
+    },
+
+    float = true,
+    center = true,
+
+    size = {
+        "monitor_w * 0.50",
+        "monitor_h * 0.60",
+    },
+})
+
+-- Audio manager
+hl.window_rule({
+    name = "wiremix",
+
+    match = {
+        initial_class = "^wiremix$",
+    },
+
+    float = true,
+    center = true,
+
+    size = {
+        "monitor_w * 0.55",
+        "monitor_h * 0.65",
+    },
+})
+
+-- Mako notification center
+hl.window_rule({
+    name = "mako-history",
+    match = { initial_class = "^mako-history$" },
+    float = true,
+    center = true,
+    size = { "monitor_w * 0.55", "monitor_h * 0.65" },
+})
+
+-- calcurse
+hl.window_rule({
+    name = "calcurse",
+    match = { initial_class = "^calcurse$" },
+    float = true,
+    center = true,
+    size = { "monitor_w * 0.50", "monitor_h * 0.60" },
+})
+
+-- jolt
+hl.window_rule({
+    name = "jolt",
+    match = { initial_class = "^jolt$" },
+    float = true,
+    center = true,
+    size = { "monitor_w * 0.55", "monitor_h * 0.65" },
+})
+
+-- tray-tui
+hl.window_rule({
+    name = "tray-tui",
+    match = { initial_class = "^tray-tui$" },
+    float = true,
+    center = true,
+    size = { "monitor_w * 0.55", "monitor_h * 0.65" },
+})

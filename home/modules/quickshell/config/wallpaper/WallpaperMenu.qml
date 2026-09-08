@@ -201,14 +201,14 @@ Scope {
                             Image {
                                 anchors.fill: parent
 
-                                source:
-                                    wallpaperItem.fileUrl
+                                source: wallpaperItem.fileUrl
 
-                                fillMode:
-                                    Image.PreserveAspectCrop
+                                sourceSize.width: 420
+                                sourceSize.height: 300
 
+                                fillMode: Image.PreserveAspectCrop
                                 asynchronous: true
-                                cache: true
+                                cache: false
                             }
 
                             Rectangle {

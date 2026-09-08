@@ -10,16 +10,18 @@
     settings = {
       add_newline = true;
 
-      # Top line: secondary information aligned to the right
-      # Bottom line: main prompt aligned to the left
-      format = "$fill\${custom.date}$cmd_duration\n$os$username$directory$git_branch$git_status$nix_shell$character";
+      # Top line: main prompt info on the left,
+      # date and command duration on the right
+      # Bottom line: prompt character
+      format = "$os$username$directory$git_branch$git_status$nix_shell$fill\${custom.date}$cmd_duration\n$character";
 
       # ----------------------------------------------------------------
       # FILL
       # ----------------------------------------------------------------
 
       fill = {
-        symbol = " ";
+        symbol = "·";
+        style = "base03";
       };
 
       # ----------------------------------------------------------------

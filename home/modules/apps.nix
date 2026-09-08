@@ -3,7 +3,6 @@
 
   home.packages = with pkgs; [
     htop
-    btop
     fastfetch
     brave
     vlc
@@ -16,6 +15,11 @@
     discord
     ffmpegthumbnailer
     xarchiver
+    wifitui
+    wiremix
+    pkgs.calcurse
+    pkgs.jolt-tui
+    pkgs.tray-tui
   ];
 
 }

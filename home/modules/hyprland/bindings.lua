@@ -17,6 +17,9 @@ hl.bind("SUPER + D", hl.dsp.exec_cmd("uwsm app -- fuzzel"))
 -- Clipboard history
 hl.bind("SUPER + V", hl.dsp.exec_cmd("uwsm app -- cliphist-fuzzel"))
 
+-- Clipboard actions
+hl.bind("SUPER + SHIFT + V", hl.dsp.exec_cmd("uwsm app -- clipboard-clear"))
+
 -- Wallpaper menu
 hl.bind("SUPER + W", hl.dsp.exec_cmd("qs -c main ipc call wallpaper toggle"))
 

@@ -2,7 +2,6 @@ import QtQuick
 import Quickshell
 import Quickshell.Io
 
-import "notifications" as NotificationsModule
 import qs.bar
 import qs.power
 import qs.services
@@ -15,13 +14,10 @@ ShellRoot {
         delegate: Bar {
             property var modelData
             screen: modelData
-            notificationManager: notifications
         }
     }
 
-      NotificationsModule.Notifications {
-      id: notifications
-      }
+
      PowerMenu {}
 
     IpcHandler {

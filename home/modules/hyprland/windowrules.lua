@@ -127,7 +127,7 @@ hl.window_rule({
     match = { initial_class = "^mako-history$" },
     float = true,
     center = true,
-    size = { "monitor_w * 0.55", "monitor_h * 0.65" },
+    size = { "monitor_w * 0.45", "monitor_h * 0.55" },
 })
 
 -- calcurse

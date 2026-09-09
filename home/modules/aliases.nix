@@ -12,9 +12,10 @@
     nix-gens = "sudo nix-env --profile /nix/var/nix/profiles/system --list-generations";
     nix-keep-10 = "sudo nix-env --profile /nix/var/nix/profiles/system --delete-generations +10";
 
-    nix-gc = "sudo nix-collect-garbage --delete-older-than 30d";
+    nix-gc = "sudo nix-collect-garbage";
     nix-optimize = "sudo nix-store --optimise";
-    nix-clean = "sudo nix-collect-garbage --delete-older-than 30d && sudo nix-store --optimise";
+
+    nix-clean = "sudo nix-env --profile /nix/var/nix/profiles/system --delete-generations +10 && sudo nix-collect-garbage && sudo nix-store --optimise";
 
     # Git / lazygit
     lg = "lazygit";

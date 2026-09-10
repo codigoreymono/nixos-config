@@ -27,6 +27,7 @@
     ./modules/opencode.nix
     ./modules/herdr.nix
     ./modules/tray.nix
+    ./modules/zed.nix
     ./modules/nvf
   ];
 

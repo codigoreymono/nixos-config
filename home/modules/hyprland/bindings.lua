@@ -66,6 +66,9 @@ hl.bind("SUPER + SPACE", hl.dsp.window.float())
 -- Previous workspace on current monitor
 hl.bind("SUPER + TAB", hl.dsp.focus({workspace = "previous_per_monitor"}))
 
+-- Toggle split orientation
+hl.bind("SUPER + SHIFT + SPACE", hl.dsp.layout("togglesplit"))
+
 -- -------------------------------------------------------------------
 -- WORKSPACES
 --

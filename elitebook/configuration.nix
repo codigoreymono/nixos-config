@@ -2,8 +2,9 @@
 
 {
   imports = [
-    ./modules/regreet.nix
+    ./modules/tuigreet.nix
     ./modules/stylix.nix
+    ./modules/localsend.nix
   ];
 
   # =================================================================
@@ -129,6 +130,15 @@
     hyprlock = {};
   };
 
+  # -----------------------------------------------------------------
+  # KEYRING CONFIG
+  # -----------------------------------------------------------------
+
+
+  security.polkit = {
+    enable = true;
+    enablePkexecWrapper = true;
+  };
 
   # -----------------------------------------------------------------
   # GRAPHICS

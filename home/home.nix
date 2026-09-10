@@ -29,6 +29,8 @@
     ./modules/tray.nix
     ./modules/zed.nix
     ./modules/nvf
+    ./modules/polkit.nix
+    ./modules/ssh.nix
   ];
 
   home.username = "reymono";
@@ -43,5 +45,5 @@
     package = pkgs.phinger-cursors;
     size = 24;
   };
-
+  stylix.targets.qt.enable = true;
 }

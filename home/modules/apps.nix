@@ -20,6 +20,7 @@
     pkgs.calcurse
     pkgs.jolt-tui
     pkgs.tray-tui
+    pkgs.rnote
   ];
 
 }

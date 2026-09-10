@@ -53,7 +53,7 @@
     targets = {
       font-packages.enable = true;
       qt.enable = true;
-      regreet.enable = true;
+      console.enable = true;
     };
 
     # ---------------------------------------------------------------

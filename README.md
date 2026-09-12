@@ -25,11 +25,7 @@ This setup is centered around a minimal Wayland desktop using **Hyprland**, **Qu
 
 ## Preview
 
-Screenshots coming soon.
-
-<!--
 ![Desktop](./assets/screenshots/desktop.png)
--->
 
 ## Repository Structure
 

@@ -31,6 +31,7 @@
     ./modules/nvf
     ./modules/polkit.nix
     ./modules/ssh.nix
+
   ];
 
   home.username = "reymono";

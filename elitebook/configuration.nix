@@ -5,6 +5,7 @@
     ./modules/tuigreet.nix
     ./modules/stylix.nix
     ./modules/localsend.nix
+    ./modules/docker.nix
   ];
 
   # =================================================================

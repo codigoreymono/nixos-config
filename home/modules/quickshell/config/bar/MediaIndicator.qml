@@ -53,25 +53,6 @@ Item {
         }
     }
 
-    MouseArea {
-        anchors.fill: parent
-
-        enabled:
-            root.player
-            && root.player.canTogglePlaying
-
-        cursorShape: Qt.PointingHandCursor
-
-        onClicked: {
-            if (
-                root.player
-                && root.player.canTogglePlaying
-            ) {
-                root.player.togglePlaying()
-            }
-        }
-    }
-
     Timer {
         interval: 140
         repeat: true

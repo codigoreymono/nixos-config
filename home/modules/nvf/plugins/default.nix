@@ -8,5 +8,6 @@
     ./trouble.nix
     ./surround.nix
     ./flash.nix
+    ./cord.nix
   ];
 }

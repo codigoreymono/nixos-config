@@ -1,5 +1,3 @@
-{ ... }:
-
 {
   stylix.targets.foot.enable = true;
 
@@ -18,6 +16,10 @@
 
       mouse = {
         hide-when-typing = "yes";
+      };
+
+      colors-dark = {
+        alpha-mode = "all";
       };
     };
   };

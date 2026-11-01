@@ -24,14 +24,13 @@
     ./modules/screenshots.nix
     ./modules/mako.nix
     ./modules/hyprpaper.nix
-    ./modules/opencode.nix
-    ./modules/herdr.nix
     ./modules/tray.nix
     ./modules/zed.nix
     ./modules/nvf
     ./modules/polkit.nix
     ./modules/ssh.nix
     ./modules/harlequin.nix
+    ./modules/ai
 
   ];
 

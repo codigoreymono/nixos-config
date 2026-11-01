@@ -39,6 +39,10 @@
     pkgs.tray-tui
     pkgs.rnote
     libreoffice-stable
+    thunderbird
+    filezilla
+    rsync
+    mediainfo
   ];
 
 }

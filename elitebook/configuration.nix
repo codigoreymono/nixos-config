@@ -8,6 +8,7 @@
     ./modules/docker.nix
     ./modules/compatibility.nix
     ./modules/jellyfin.nix
+
   ];
 
   # =================================================================

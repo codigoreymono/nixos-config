@@ -43,6 +43,7 @@
     filezilla
     rsync
     mediainfo
+    xournalpp
   ];
 
 }
